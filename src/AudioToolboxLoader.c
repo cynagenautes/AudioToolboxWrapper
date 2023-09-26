@@ -160,9 +160,9 @@ static HMODULE LoadTargetLibrary() {
     if (hLib) goto success;
   }
 
-  /* try Program Files\Common Files\Apple\Apple Application Support\CoreAudioToolbox.dll */
-  if (SUCCEEDED(SHGetFolderPathW(NULL, CSIDL_PROGRAM_FILES_COMMON, NULL, SHGFP_TYPE_CURRENT, pszLibraryPath))) {
-    MyPathAppendW(pszLibraryPath, L"Apple\\Apple Application Support\\" LIBNAMEW);
+  /* try Program Files\iTunes\CoreAudioToolbox.dll */
+  if (SUCCEEDED(SHGetFolderPathW(NULL, CSIDL_PROGRAM_FILES, NULL, SHGFP_TYPE_CURRENT, pszLibraryPath))) {
+    MyPathAppendW(pszLibraryPath, L"iTunes\\" LIBNAMEW);
     hLib = LoadLibraryExW(pszLibraryPath, NULL, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS | LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR);
     if (hLib) goto success;
   }
